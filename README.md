@@ -1,46 +1,45 @@
-# Getting Started with Create React App
+# Memory Game
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+React-приложение “Memory Game”.
 
-## Available Scripts
+## Задача
 
-In the project directory, you can run:
+Реализовать веб-интерфейс и клиентскую логику карточной игры «Memory» в соответствии с предложенными правилами и дизайном.
 
-### `npm start`
+### Правила игры
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+«Memory» – это карточная настольная игра для одного игрока. Игрок открывает любые две карты за один ход. Если при открытии образовалась пара одинаковых по масти и рангу карт, то они удаляются со стола, и игроку начисляются очки. Если открытые карты оказались разными, то они переворачиваются обратно рубашкой вверх, а количество набранных очков уменьшается.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Очки пересчитываются на каждом ходу по следующему принципу:
 
-### `npm test`
+- при образовании пары прибавляется число нераскрытых пар, умноженное на 42;
+- при несовпадении пары вычитается число раскрытых пар, умноженное на 42.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Требования к выполнению задачи
 
-### `npm run build`
+1. Задача должна быть решена с использованием следующих технологий: HTML, CSS, React, TypeScript.
+2. Код приложения должен содержать необходимые комментарии.
+3. Требуется обеспечить корректную работу приложения во всех современных браузерах.
+4. Вывод графики должен быть реализован средствами CSS и TypeScript, допускается минимальное использование растровых картинок.
+5. Интерфейс должен быть приятен глазу и вызывать желание играть снова и снова.
+6. Игра должна выглядеть законченным продуктом, целостно.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Теги
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+React, TypeScript, HTML, CSS, CSS-in-JS, Emotion, анимации, алгоритмы и структуры данных, ESLint, Prettier
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Screenshots
 
-### `npm run eject`
+![](screenshots/gameplay.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Demo
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Рабочая версия приложения развернута на github.io
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+**[Запустить демо!](https://nshaikhinurov.github.io/memory-game/)**
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Автор
 
-## Learn More
+**Наиль Шайхинуров**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Telegram: [@nshaikhinurov](https://t.me/nshaikhinurov), email: n.shaikhinurov@gmail.com
