@@ -14,15 +14,23 @@ interface GameScreenProps {
   onGameOver: (score: number) => void;
 }
 
+type GameState = {
+  score: number;
+  isPlaying: boolean;
+};
+
 const Game: React.FC<GameScreenProps> = ({ cards, onRestart, onGameOver, rerender: cloneState }) => {
   const card1 = useRef<Card | null>(null);
   const card2 = useRef<Card | null>(null);
   const openedPairs = useRef(0);
 
-  const [state, setState] = React.useState({
-    score: 0,
-    isPlaying: false,
-  });
+  const [state, updateState] = React.useReducer(
+    (state: GameState, newState: Partial<GameState>): GameState => ({ ...state, ...newState }),
+    {
+      score: 0,
+      isPlaying: false,
+    }
+  );
 
   const showAllCards = useCallback(() => {
     cards.forEach((card) => card.flip());
@@ -39,7 +47,7 @@ const Game: React.FC<GameScreenProps> = ({ cards, onRestart, onGameOver, rerende
       openedPairs.current = 0;
       card1.current = null;
       card2.current = null;
-      setTimeout(() => setState({ score: 0, isPlaying: true }), 5600);
+      setTimeout(() => updateState({ score: 0, isPlaying: true }), 5600);
     },
     [showAllCards]
   );
@@ -67,15 +75,9 @@ const Game: React.FC<GameScreenProps> = ({ cards, onRestart, onGameOver, rerende
         }
         card1.current.hide();
         card2.current.hide();
-        setState((state) => ({
-          ...state,
-          score: state.score + 42 * (9 - openedPairs.current),
-        }));
+        updateState({ score: state.score + 42 * (9 - openedPairs.current) });
       } else {
-        setState((state) => ({
-          ...state,
-          score: state.score - 42 * openedPairs.current,
-        }));
+        updateState({ score: state.score - 42 * openedPairs.current });
 
         card1.current.flip();
         card2.current.flip();
